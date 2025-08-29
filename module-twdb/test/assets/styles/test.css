@@ -1,0 +1,9 @@
+#query {
+	width: 360px;
+	height: 120px;
+	vertical-align: bottom;
+	overflow-y: scroll;
+}
+#done {
+	cursor: pointer;
+}

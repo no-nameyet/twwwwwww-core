@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<title>テスト</title>
+	<link rel="stylesheet" href="https://cdn.datatables.net/2.3.3/css/dataTables.dataTables.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
+	<link rel="stylesheet" href="./assets/styles/test.css">
+	<script type="importmap">
+		{
+			"imports": {
+				"twdb/": "../src/"
+			}
+		}
+	</script>
+	<script type="module">
+		import twdb from 'twdb/twdb.js';
+		// テーブルの実行
+		new DataTable('#table', {
+			responsive: true,
+			paging: false,
+		});
+		// クエリ実行
+		$('#done').click(_ => {
+			(async _ => {
+				// 検索処理
+				const result = await twdb.query($('#query').val());
+				// テーブル再描画
+				$('#table').DataTable().clear().destroy();
+				$('#table').DataTable({
+					data: result,
+					columns: Object.keys(result[0]).map(key => ({
+						data: key,
+						title: key,
+					})),
+					responsive: true,
+					paging: false,
+				});
+			})();
+		});
+	</script>
+</head>
+
+<body>
+
+<textarea id="query">SELECT * from tw7_skills</textarea>
+<button type="button" id="done">実行</button>
+<table id="table">
+	<thead></thead>
+	<tbody></tbody>
+</table>
+
+</body>
+</html>

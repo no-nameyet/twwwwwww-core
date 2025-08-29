@@ -1,0 +1,5 @@
+!.gitkeep
+**/.venv/
+**/__pycache__/
+**/temp/
+**/dist/

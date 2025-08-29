@@ -1,0 +1,4 @@
+requests
+BeautifulSoup4
+pytz
+pyarrow

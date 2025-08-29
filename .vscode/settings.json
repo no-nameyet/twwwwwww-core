@@ -1,0 +1,12 @@
+{
+	// 表示の除外
+	"files.exclude": {
+		"**/.git": true,
+		"**/.venv": true,
+		"**/__pycache__": true,
+	},
+	// collect-dbの定数
+	"tango-whiskey-7.move.collect-db.args": {
+		"home": "${workspaceFolder}/collect-db",
+	},
+}
